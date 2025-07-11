@@ -6,8 +6,8 @@ SHELL = /bin/bash
 
 include .env
 
-.PHONY: gitinit scanrepo tfaudit tfimport tfremove tfapply tfdestroy
-.SILENT: gitinit scanrepo tfaudit tfimport tfremove tfapply tfdestroy
+.PHONY: gitinit scanrepo tfinit tfaudit tfimport tfremove tfapply tfdestroy
+.SILENT: gitinit scanrepo tfinit tfaudit tfimport tfremove tfapply tfdestroy
 
 gitinit:
 	git init
@@ -22,6 +22,11 @@ scanrepo:
 			--config "/repo/config/kics.yml" \
 			--path "/repo" \
 			--output-path "/repo/.reports"
+
+tfinit:
+	source ./scripts/helpers/terraform.sh ;\
+	cd deployment ;\
+	terraform_init
 
 tfaudit:
 	source ./scripts/helpers/terraform.sh ;\

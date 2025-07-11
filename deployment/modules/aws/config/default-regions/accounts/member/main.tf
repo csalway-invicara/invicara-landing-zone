@@ -1,4 +1,4 @@
-module "config_log_default_regions" {
+module "default_regions" {
   source = "../../"
   providers = {
     aws.us-east-1      = aws.us-east-1

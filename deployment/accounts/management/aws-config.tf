@@ -9,6 +9,6 @@ module "config_log_me-central-1" {
 ## Default Regions
 
 module "config_log_default_regions" {
-  source                  = "../../modules/aws/config/default_regions/accounts/management"
+  source                  = "../../modules/aws/config/default-regions/accounts/identity"
   config_logs_bucket_name = var.config_logs_bucket_name
 }

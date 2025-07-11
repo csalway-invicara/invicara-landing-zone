@@ -84,3 +84,29 @@ resource "aws_organizations_account" "invicara_ireland" {
     ]
   }
 }
+
+resource "aws_organizations_account" "account_1" {
+  name      = "invicara account 1"
+  email     = "devops+account1@invicara.com"
+  parent_id = aws_organizations_organizational_unit.workloads.id
+  role_name = var.organization_account_access_role
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes = [
+      role_name
+    ]
+  }
+}
+
+resource "aws_organizations_account" "account_2" {
+  name      = "invicara account 2"
+  email     = "devops+account2@invicara.com"
+  parent_id = aws_organizations_organizational_unit.workloads.id
+  role_name = var.organization_account_access_role
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes = [
+      role_name
+    ]
+  }
+}

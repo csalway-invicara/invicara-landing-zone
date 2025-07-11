@@ -1,5 +1,6 @@
-.DS_Store
 .terraform/
+.debug/
+.reports/
 
-
+.DS_Store
 .env

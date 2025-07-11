@@ -1,5 +1,5 @@
 resource "aws_securityhub_account" "this" {
-  provider = aws.management
+  provider                 = aws.management
   enable_default_standards = false
 }
 
@@ -37,7 +37,11 @@ resource "aws_securityhub_configuration_policy" "org" {
       "arn:aws:securityhub:${var.default_region}::standards/cis-aws-foundations-benchmark/v/1.4.0",
     ]
     security_controls_configuration {
-      disabled_control_identifiers = []
+      disabled_control_identifiers = [
+        "IAM.6",        # Hardware MFA should be enabled for the root user
+        #"IAM.18",       # Ensure a support role has been created to manage incidents with AWS Support
+        "CloudTrail.5", # CloudTrail trails should be integrated with Amazon CloudWatch Logs
+      ]
     }
   }
 

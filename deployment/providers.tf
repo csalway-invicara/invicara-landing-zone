@@ -1,6 +1,4 @@
 terraform {
-  # https://github.com/opentofu/opentofu/releases/tag/v1.9.0
-  # for_each in provider configuration blocks:
   required_version = ">= 1.9.0"
 
   required_providers {

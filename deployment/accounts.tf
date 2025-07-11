@@ -41,11 +41,11 @@ module "account_invicara_us" {
   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
 }
 
-module "account_invicara_sandbox" {
+module "account_invicara_global" {
   source = "./accounts/970333330357"
 
   default_region          = var.default_region
-  account_id              = aws_organizations_account.invicara_us.id
+  account_id              = aws_organizations_account.invicara_global.id
   assume_role             = var.organization_account_access_role
   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
 }
@@ -54,7 +54,25 @@ module "account_invicara_ireland" {
   source = "./accounts/366349374946"
 
   default_region          = var.default_region
-  account_id              = aws_organizations_account.invicara_us.id
+  account_id              = aws_organizations_account.invicara_ireland.id
+  assume_role             = var.organization_account_access_role
+  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+}
+
+module "account_account_1" {
+  source = "./accounts/681696216733"
+
+  default_region          = var.default_region
+  account_id              = aws_organizations_account.account_1.id
+  assume_role             = var.organization_account_access_role
+  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+}
+
+module "account_account_2" {
+  source = "./accounts/980989823194"
+
+  default_region          = var.default_region
+  account_id              = aws_organizations_account.account_2.id
   assume_role             = var.organization_account_access_role
   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
 }

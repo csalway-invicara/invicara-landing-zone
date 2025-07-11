@@ -44,6 +44,14 @@ import {
   to = aws_organizations_account.invicara_ireland
   id = "366349374946"
 }
+import {
+  to = aws_organizations_account.account_1
+  id = "681696216733"
+}
+import {
+  to = aws_organizations_account.account_2
+  id = "980989823194"
+}
 
 import {
   to = module.account_log_archive.module.cloudtrail_logs_bucket.aws_s3_bucket.this
