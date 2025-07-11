@@ -1,3 +1,3 @@
 module "iam_global" {
-  source      = "../../modules/aws/iam"
+  source = "../../modules/aws/iam"
 }

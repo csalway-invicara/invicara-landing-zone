@@ -3,7 +3,7 @@ resource "aws_config_configuration_recorder" "regional" {
 
   recording_group {
     all_supported                 = true
-    include_global_resource_types = true  # This will include global resources like IAM, CloudFront, etc. 
+    include_global_resource_types = true # This will include global resources like IAM, CloudFront, etc. 
   }
 
   recording_mode {
