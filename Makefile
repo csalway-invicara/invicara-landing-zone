@@ -6,8 +6,8 @@ SHELL = /bin/bash
 
 include .env
 
-.PHONY: gitinit scanrepo tfaudit tfimport tfremove tfapply tfdestroy
-.SILENT: gitinit scanrepo tfaudit tfimport tfremove tfapply tfdestroy
+.PHONY: gitinit scanrepo tfinit tfaudit tfimport tfremove tfapply tfdestroy
+.SILENT: gitinit scanrepo tfinit tfaudit tfimport tfremove tfapply tfdestroy
 
 gitinit:
 	git init
@@ -18,36 +18,41 @@ gitinit:
 scanrepo:
 	docker run --rm --pull=always \
 		-v "${PWD}:/repo" \
-		checkmarx/kics:latest scan --ci \
+		checkmarx/kics:latest scan \
 			--config "/repo/config/kics.yml" \
 			--path "/repo" \
 			--output-path "/repo/.reports"
 
+tfinit:
+	source ./scripts/helpers/terraform.sh ;\
+	cd aws ;\
+	terraform_init
+
 tfaudit:
 	source ./scripts/helpers/terraform.sh ;\
-	cd deployment ;\
+	cd aws ;\
 	terraform_fmt $(filter-out $@,$(MAKECMDGOALS)) ;\
 	terraform_validate $(filter-out $@,$(MAKECMDGOALS))
 
 tfimport:
 	source ./scripts/helpers/terraform.sh ;\
-	cd deployment ;\
+	cd aws ;\
 	terraform_import $(filter-out $@,$(MAKECMDGOALS))
 
 tfremove:
 	source ./scripts/helpers/terraform.sh ;\
-	cd deployment ;\
+	cd aws ;\
 	terraform_remove $(filter-out $@,$(MAKECMDGOALS))
 
 tfapply:
 	source ./scripts/helpers/terraform.sh ;\
-	cd deployment ;\
+	cd aws ;\
 	terraform_init ;\
 	terraform_apply $(filter-out $@,$(MAKECMDGOALS))
 
 tfdestroy:
 	source ./scripts/helpers/terraform.sh ;\
-	cd deployment ;\
+	cd aws ;\
 	terraform_init ;\
 	terraform_destroy $(filter-out $@,$(MAKECMDGOALS))
 

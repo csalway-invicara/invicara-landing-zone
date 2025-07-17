@@ -1,0 +1,8 @@
+# KICS configuration
+minimal-ui: true
+no-progress: true
+fail-on: critical,high
+# exclude-queries:
+#  # Resource Not Using Tags
+#  - e38a8e0a-b88b-4902-b3fe-b0fcb17d5c10
+ 

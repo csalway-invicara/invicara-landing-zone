@@ -1,4 +1,7 @@
 .terraform/
+.reports/
+.import/
+.archive/
 
 .DS_store
 .env

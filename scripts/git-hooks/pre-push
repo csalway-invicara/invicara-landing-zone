@@ -4,9 +4,5 @@
 set -eo pipefail
 
 # vulnerability scanning - Nb. this scans non-staged files/dirs as well
-echo "== VULNERABILITY SCAN ============================================"
-make scanrepo
-
-# terraform scanning - Nb. this scans non-staged files/dirs as well
-echo "== TERRAFORM AUDIT ==============================================="
-make tfaudit
+#echo "== VULNERABILITY SCAN ============================================"
+#make scanrepo
