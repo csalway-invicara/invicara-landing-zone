@@ -22,7 +22,6 @@ terraform_fmt() {
 }
 
 terraform_validate() {
-    terraform init -backend=false -upgrade=true
     terraform validate ${@}
 }
 

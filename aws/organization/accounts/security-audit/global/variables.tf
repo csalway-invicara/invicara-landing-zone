@@ -10,6 +10,6 @@ variable "assume_role" {
   type = string
 }
 
-variable "security_audit_account_id" {
+variable "organization_root_id" {
   type = string
 }

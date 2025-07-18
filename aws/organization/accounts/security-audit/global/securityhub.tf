@@ -1,4 +1,8 @@
-resource "aws_securityhub_finding_aggregator" "admin" {
+resource "aws_securityhub_account" "this" {
+  enable_default_standards = false
+}
+
+resource "aws_securityhub_finding_aggregator" "this" {
   linking_mode = "ALL_REGIONS"
 }
 
@@ -8,7 +12,7 @@ resource "aws_securityhub_organization_configuration" "this" {
   organization_configuration {
     configuration_type = "CENTRAL"
   }
-  depends_on = [aws_securityhub_finding_aggregator.admin]
+  depends_on = [aws_securityhub_finding_aggregator.this]
 }
 
 resource "aws_securityhub_configuration_policy" "org" {

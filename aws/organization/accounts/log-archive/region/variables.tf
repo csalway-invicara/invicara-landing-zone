@@ -1,4 +1,4 @@
-variable "default_region" {
+variable "region" {
   type = string
 }
 
@@ -10,6 +10,6 @@ variable "assume_role" {
   type = string
 }
 
-variable "security_audit_account_id" {
+variable "config_logs_bucket_name" {
   type = string
 }

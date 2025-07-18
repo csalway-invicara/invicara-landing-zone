@@ -5,3 +5,7 @@ variable "region" {
 variable "config_logs_bucket_name" {
   type = string
 }
+
+variable "guardduty_admin_account_id" {
+  type = string
+}

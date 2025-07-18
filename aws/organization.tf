@@ -42,13 +42,3 @@ resource "aws_organizations_organization" "this" {
     ]
   }
 }
-
-module "organization" {
-  source = "./organization"
-
-  default_region              = var.default_region
-  organization_root_id        = aws_organizations_organization.this.roots[0].id
-  security_audit_account_id   = aws_organizations_account.security_audit.id
-  assume_role                 = var.organization_account_access_role
-  cloudtrail_logs_bucket_name = module.account_log_archive.cloudtrail_logs_bucket_name
-}

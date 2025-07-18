@@ -31,6 +31,7 @@ tfinit:
 tfaudit:
 	source ./scripts/helpers/terraform.sh ;\
 	cd aws ;\
+    terraform init -backend=false -upgrade=true ;\
 	terraform_fmt $(filter-out $@,$(MAKECMDGOALS)) ;\
 	terraform_validate $(filter-out $@,$(MAKECMDGOALS))
 

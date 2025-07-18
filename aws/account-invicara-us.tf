@@ -19,3 +19,18 @@ module "account_invicara_us_blueprint" {
   assume_role             = var.organization_account_access_role
   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
 }
+
+# resource "aws_account_region" "invicara_us_me_central_1" {
+#   account_id  = aws_organizations_account.invicara_us.id
+#   region_name = "me-central-1"
+#   enabled     = true
+# }
+
+module "account_invicara_us_me_central_1" {
+  source = "./organization/blueprints/member/region"
+
+  region                  = "me-central-1"
+  account_id              = aws_organizations_account.invicara_us.id
+  assume_role             = var.organization_account_access_role
+  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+}

@@ -9,7 +9,3 @@ variable "account_id" {
 variable "assume_role" {
   type = string
 }
-
-variable "security_audit_account_id" {
-  type = string
-}
