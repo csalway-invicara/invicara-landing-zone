@@ -1,8 +1,8 @@
 module "global" {
-  source      = "./global"
-  region      = var.default_region
-  account_id  = var.account_id
-  assume_role = var.assume_role
+  source         = "./global"
+  default_region = var.default_region
+  account_id     = var.account_id
+  assume_role    = var.assume_role
 }
 
 ## DEFAULT REGIONS (DO NOT DELETE)
