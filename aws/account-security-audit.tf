@@ -12,7 +12,7 @@ resource "aws_organizations_account" "security_audit" {
 }
 
 module "account_security_audit_blueprint" {
-  source = "./blueprint/account"
+  source = "./organization/blueprints/member"
 
   default_region          = var.default_region
   account_id              = aws_organizations_account.security_audit.id

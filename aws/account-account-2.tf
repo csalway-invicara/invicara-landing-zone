@@ -12,7 +12,7 @@ resource "aws_organizations_account" "account_2" {
 }
 
 module "account_account_2_blueprint" {
-  source = "./blueprint/account"
+  source = "./organization/blueprints/member"
 
   default_region          = var.default_region
   account_id              = aws_organizations_account.account_2.id

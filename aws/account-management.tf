@@ -6,3 +6,10 @@ resource "aws_organizations_account" "management" {
     prevent_destroy = true
   }
 }
+
+module "account_management" {
+  source = "./organization/accounts/management"
+
+  default_region          = var.default_region
+  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+}

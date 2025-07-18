@@ -12,7 +12,7 @@ resource "aws_organizations_account" "invicara_global" {
 }
 
 module "account_invicara_global_blueprint" {
-  source = "./blueprint/account"
+  source = "./organization/blueprints/member"
 
   default_region          = var.default_region
   account_id              = aws_organizations_account.invicara_global.id

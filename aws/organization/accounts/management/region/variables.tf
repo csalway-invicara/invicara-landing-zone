@@ -1,8 +1,4 @@
-variable "account_id" {
-  type = string
-}
-
-variable "assume_role" {
+variable "region" {
   type = string
 }
 

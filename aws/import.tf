@@ -65,17 +65,12 @@ import {
 }
 
 import {
-  to = module.account_log_archive.module.cloudtrail_logs_bucket.aws_s3_bucket.this
-  id = "aws-cloudtrail-logs-eu-west-1-828512280012"
-}
-import {
-  to = module.account_log_archive.module.config_logs_bucket.aws_s3_bucket.this
-  id = "aws-config-logs-eu-west-1-828512280012"
-}
-
-import {
   to = module.organization.module.cloudtrail.aws_cloudtrail.this
   id = "arn:aws:cloudtrail:eu-west-1:105561173654:trail/Organization"
+}
+import {
+  to = module.organization.module.cloudtrail.aws_kms_key.cloudtrail
+  id = "75a554f1-50a8-42ae-87fb-343a09c4d1cb"
 }
 
 import {
@@ -171,7 +166,6 @@ import {
   to = module.organization.module.guardduty_me_central_1.aws_guardduty_detector.root
   id = "1cc78ae89f4a437aabe94ad60170674a"
 }
-
 import {
   to = module.organization.module.guardduty_ap_northeast_1.aws_guardduty_detector.admin
   id = "19e276410a0147d9b00844dae12c5034"
@@ -318,35 +312,54 @@ import {
   id = "476569303854"
 }
 
+
 import {
-  to = module.account_account_1_blueprint.aws_iam_role.aws_support_role
+  to = module.account_log_archive.module.cloudtrail_logs_bucket.aws_s3_bucket.this
+  id = "aws-cloudtrail-logs-eu-west-1-828512280012"
+}
+import {
+  to = module.account_log_archive.module.config_logs_bucket.aws_s3_bucket.this
+  id = "aws-config-logs-eu-west-1-828512280012"
+}
+
+import {
+  to = module.account_management.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_account_2_blueprint.aws_iam_role.aws_support_role
+  to = module.account_account_1_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_invicara_us_blueprint.aws_iam_role.aws_support_role
+  to = module.account_account_2_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_invicara_global_blueprint.aws_iam_role.aws_support_role
+  to = module.account_account_3_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_invicara_ireland_blueprint.aws_iam_role.aws_support_role
+  to = module.account_invicara_us_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_networking_blueprint.aws_iam_role.aws_support_role
+  to = module.account_invicara_global_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_log_archive_blueprint.aws_iam_role.aws_support_role
+  to = module.account_invicara_ireland_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_security_audit_blueprint.aws_iam_role.aws_support_role
+  to = module.account_networking_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
   id = "AWSSupportRole"
 }
+import {
+  to = module.account_log_archive_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
+  id = "AWSSupportRole"
+}
+import {
+  to = module.account_security_audit_blueprint.module.global.module.foundation.aws_iam_role.aws_support_role
+  id = "AWSSupportRole"
+}
+

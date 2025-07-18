@@ -1,5 +1,5 @@
 provider "aws" {
-  region = var.default_region
+  region = var.region
   assume_role {
     role_arn     = "arn:aws:iam::${var.account_id}:role/${var.assume_role}"
     session_name = "terraform"
