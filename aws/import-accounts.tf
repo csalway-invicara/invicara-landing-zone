@@ -15,18 +15,6 @@ import {
   id = "AWSSupportRole"
 }
 import {
-  to = module.account_account_1.module.account_global.aws_iam_role.aws_support_role[0]
-  id = "AWSSupportRole"
-}
-import {
-  to = module.account_account_2.module.account_global.aws_iam_role.aws_support_role[0]
-  id = "AWSSupportRole"
-}
-import {
-  to = module.account_account_3.module.account_global.aws_iam_role.aws_support_role[0]
-  id = "AWSSupportRole"
-}
-import {
   to = module.account_invicara_ireland.module.account_global.aws_iam_role.aws_support_role[0]
   id = "AWSSupportRole"
 }
