@@ -11,11 +11,11 @@ resource "aws_organizations_account" "invicara_ireland" {
   }
 }
 
-module "account_invicara_ireland_blueprint" {
-  source = "./organization/blueprints/member"
+# module "account_invicara_ireland_blueprint" {
+#   source = "./organization/blueprints/member"
 
-  default_region          = var.default_region
-  account_id              = aws_organizations_account.invicara_ireland.id
-  assume_role             = var.organization_account_access_role
-  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
-}
+#   default_region          = var.default_region
+#   account_id              = aws_organizations_account.invicara_ireland.id
+#   assume_role             = var.organization_account_access_role
+#   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+# }

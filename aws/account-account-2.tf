@@ -11,14 +11,14 @@ resource "aws_organizations_account" "account_2" {
   }
 }
 
-module "account_account_2_blueprint" {
-  source = "./organization/blueprints/member"
+# module "account_account_2_blueprint" {
+#   source = "./organization/blueprints/member"
 
-  default_region          = var.default_region
-  account_id              = aws_organizations_account.account_2.id
-  assume_role             = var.organization_account_access_role
-  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
-}
+#   default_region          = var.default_region
+#   account_id              = aws_organizations_account.account_2.id
+#   assume_role             = var.organization_account_access_role
+#   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+# }
 
 # resource "aws_account_region" "account_2_me_central_1" {
 #   account_id  = aws_organizations_account.account_2.id
@@ -26,11 +26,11 @@ module "account_account_2_blueprint" {
 #   enabled     = true
 # }
 
-module "account_account_2_me_central_1" {
-  source = "./organization/blueprints/member/region"
+# module "account_account_2_me_central_1" {
+#   source = "./organization/blueprints/member/region"
 
-  region                  = "me-central-1"
-  account_id              = aws_organizations_account.account_2.id
-  assume_role             = var.organization_account_access_role
-  config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
-}
+#   region                  = "me-central-1"
+#   account_id              = aws_organizations_account.account_2.id
+#   assume_role             = var.organization_account_access_role
+#   config_logs_bucket_name = module.account_log_archive.config_logs_bucket_name
+# }

@@ -1,6 +1,8 @@
 # [IAM.18] Ensure a support role has been created to manage incidents with AWS Support
 
 resource "aws_iam_role" "aws_support_role" {
+  count = var.flags.iam_create_support_role ? 1 : 0
+
   name = "AWSSupportRole"
 
   assume_role_policy = jsonencode({
@@ -18,6 +20,8 @@ resource "aws_iam_role" "aws_support_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "aws_support_role" {
-  role       = aws_iam_role.aws_support_role.name
+  count = var.flags.iam_create_support_role ? 1 : 0
+
+  role       = aws_iam_role.aws_support_role[0].name
   policy_arn = "arn:aws:iam::aws:policy/AWSSupportAccess"
 }

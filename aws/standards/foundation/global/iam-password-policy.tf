@@ -3,6 +3,8 @@
 # [IAM.16] Ensure IAM password policy prevents password reuse
 
 resource "aws_iam_account_password_policy" "strict" {
+  count = var.flags.iam_strict_account_password_policy ? 1 : 0
+
   require_uppercase_characters = true
   require_lowercase_characters = true
   require_symbols              = true
