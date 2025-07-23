@@ -169,3 +169,29 @@ module "account_invicara_ireland" {
 }
 
 ####
+
+# resource "aws_organizations_account" "landing_zone_test" {
+#   name              = "LandingZoneTest"
+#   email             = "devops+landing-zone-test@invicara.com"
+#   parent_id         = aws_organizations_organizational_unit.workloads.id
+#   role_name         = var.organization_account_access_role
+#   close_on_deletion = true
+#   lifecycle {
+#     ignore_changes = [
+#       role_name
+#     ]
+#   }
+# }
+
+# module "account_landing_zone_test" {
+#   source = "./accounts/landing-zone-test"
+
+#   default_region           = var.default_region
+#   account_id               = aws_organizations_account.landing_zone_test.id
+#   assume_role              = var.organization_account_access_role
+#   config_logs_bucket_names = module.buckets.config_logs_buckets
+
+#   depends_on = [ aws_organizations_account.landing_zone_test ]
+# }
+
+####
