@@ -26,6 +26,31 @@ Create a `.env` file in the root which exports your AWS_PROFILE for `invicara-ma
 export AWS_PROFILE=invicara-main
 ```
 
-## Run
+Source this file before you initially run terraform `source .env`.
 
-From the root, type `make tfapply`, or switch into the `aws` directory and use `terraform apply` ensuring you `source .env` first.
+## Layout
+
+A limitation of Terraform is the order components are created and thus you can not create an account, and then apply configuration to that account in the
+same run.  To overcome this limitation, we seperate concerns by first seeding the organization and creating accounts, configuring each accounts state, setting up shared services, and then deploying applications.
+
+### Seeding
+
+Organization setup with OU's, SCP's and Accounts.
+
+Switch into the `aws/seeding` account and run `terraform apply`.
+
+### Shared
+
+Shared services or services that are applied to all accounts such as Buckets, GuardDuty, SecurityHub, DNS, which can pull outputs from above stages.
+
+Switch into the `aws/shared` account and run `terraform apply`. You can also target a single service using terraforms `--target` command argument.
+
+### State
+
+Individual account state which can pull outputs from above stages.
+
+Switch into the `aws/state` account and run `terraform apply`.  You can also target a single account using terraforms `--target` command argument.
+
+### Applications
+
+Deployment of applications into accounts which can pull outputs from any above.
